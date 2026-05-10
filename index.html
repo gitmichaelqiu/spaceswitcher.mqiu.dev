@@ -131,7 +131,7 @@
             </a>
             <div class="nav-dock__label"><span class="nav-dock__label-text">{{ sectionLabels[activeSection] || activeSection }}</span></div>
             <button @click="toggleTheme" class="nav-dock__btn"
-                :aria-label="themeMode === 'dark' ? 'Switch to light mode' : themeMode === 'light' ? 'Switch to system theme' : 'Switch to dark mode'">
+                :aria-label="themeMode === 'system' ? 'Switch to light mode' : themeMode === 'light' ? 'Switch to dark mode' : 'Switch to system theme'">
                 <span v-if="themeMode === 'dark'"><i data-lucide="moon" class="w-5 h-5"></i></span>
                 <span v-else-if="themeMode === 'light'"><i data-lucide="sun" class="w-5 h-5"></i></span>
                 <span v-else><i data-lucide="sun-moon" class="w-5 h-5"></i></span>
@@ -646,7 +646,10 @@
                         try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
                     }
                     function setStoredTheme(val) {
-                        try { localStorage.setItem(STORAGE_KEY, val); } catch (e) {}
+                        try {
+                            if (val === null) localStorage.removeItem(STORAGE_KEY);
+                            else localStorage.setItem(STORAGE_KEY, val);
+                        } catch (e) {}
                     }
 
                     function resolveTheme() {
@@ -656,15 +659,33 @@
                     }
 
                     var isDark = ref(resolveTheme() === 'dark');
+                    var themeMode = ref(getStoredTheme() || 'system');
 
                     function applyTheme(dark) {
                         document.documentElement.classList.toggle('dark', dark);
                     }
 
                     function toggleTheme() {
-                        var next = !isDark.value;
-                        isDark.value = next;
-                        setStoredTheme(next ? 'dark' : 'light');
+                        switch (themeMode.value) {
+                            case 'system':
+                                themeMode.value = 'light';
+                                isDark.value = false;
+                                setStoredTheme('light');
+                                break;
+                            case 'light':
+                                themeMode.value = 'dark';
+                                isDark.value = true;
+                                setStoredTheme('dark');
+                                break;
+                            case 'dark':
+                                themeMode.value = 'system';
+                                setStoredTheme(null);
+                                isDark.value = systemQuery.matches;
+                                break;
+                        }
+                        nextTick(function () {
+                            lucide.createIcons();
+                        });
                     }
 
                     watch(isDark, function (val) {
@@ -680,7 +701,7 @@
                     });
 
                     function onSystemThemeChange(e) {
-                        if (getStoredTheme() === null) {
+                        if (themeMode.value === 'system') {
                             isDark.value = e.matches;
                         }
                     }
@@ -1137,6 +1158,7 @@
                         navDockBottom: navDockBottom,
                         sectionLabels: sectionLabels,
                         isDark: isDark,
+                        themeMode: themeMode,
                         toggleTheme: toggleTheme,
                         copyBrew: copyBrew,
                         brewCopied: brewCopied,
