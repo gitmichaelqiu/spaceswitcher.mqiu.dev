@@ -84,7 +84,7 @@
 
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Syncopate:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Noto+Serif+SC:wght@400;700&family=Syncopate:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="../styles/main.css">
@@ -165,22 +165,29 @@
                     </div>
                     <div class="hero__quicknav-cols">
                         <div class="hero__quicknav-col">
-                            <div class="hero__quicknav-label">Page</div>
-                            <a @click.prevent="handleNavClick('overview')" href="#overview" class="hero__quicknav-link">Overview</a>
-                            <a @click.prevent="handleNavClick('features')" href="#features" class="hero__quicknav-link">Features</a>
-                            <a @click.prevent="handleNavClick('install')" href="#install" class="hero__quicknav-link">Install</a>
+                            <div class="hero__quicknav-label">{{ t('quicknav.page') }}</div>
+                            <a @click.prevent="handleNavClick('overview')" href="#overview" class="hero__quicknav-link">{{ t('quicknav.overview') }}</a>
+                            <a @click.prevent="handleNavClick('features')" href="#features" class="hero__quicknav-link">{{ t('quicknav.features') }}</a>
+                            <a @click.prevent="handleNavClick('install')" href="#install" class="hero__quicknav-link">{{ t('quicknav.install') }}</a>
                         </div>
                         <div class="hero__quicknav-col">
-                            <div class="hero__quicknav-label">Links</div>
-                            <a href="https://github.com/gitmichaelqiu/SpaceSwitcher" target="_blank" class="hero__quicknav-link">GitHub</a>
-                            <a href="https://github.com/gitmichaelqiu/SpaceSwitcher/releases" target="_blank" class="hero__quicknav-link">Releases</a>
+                            <div class="hero__quicknav-label">{{ t('quicknav.links') }}</div>
+                            <a href="https://github.com/gitmichaelqiu/SpaceSwitcher" target="_blank" class="hero__quicknav-link">{{ t('quicknav.github') }}</a>
+                            <a href="https://github.com/gitmichaelqiu/SpaceSwitcher/releases" target="_blank" class="hero__quicknav-link">{{ t('quicknav.releases') }}</a>
                         </div>
                         <div class="hero__quicknav-col">
-                            <div class="hero__quicknav-label">More</div>
-                            <a href="https://mqiu.dev" class="hero__quicknav-link">Portfolio</a>
-                            <a href="https://desktoprenamer.mqiu.dev" target="_blank" class="hero__quicknav-link">DesktopRenamer</a>
-                            <a href="https://optclicker.mqiu.dev" target="_blank" class="hero__quicknav-link">OptClicker</a>
+                            <div class="hero__quicknav-label">{{ t('quicknav.more') }}</div>
+                            <a href="https://mqiu.dev" class="hero__quicknav-link">{{ t('quicknav.portfolio') }}</a>
+                            <a href="https://desktoprenamer.mqiu.dev" target="_blank" class="hero__quicknav-link">{{ t('quicknav.desktoprenamer') }}</a>
+                            <a href="https://optclicker.mqiu.dev" target="_blank" class="hero__quicknav-link">{{ t('quicknav.optclicker') }}</a>
                         </div>
+                    </div>
+                    <div class="hero__quicknav-lang">
+                        <button @click="toggleLang" class="hero__quicknav-lang-btn" aria-label="Switch language">
+                            <span class="hero__quicknav-lang-opt" :class="{ 'is-active': lang === 'en' }">EN</span>
+                            <span class="hero__quicknav-lang-sep">·</span>
+                            <span class="hero__quicknav-lang-opt" :class="{ 'is-active': lang === 'zh' }">中文</span>
+                        </button>
                     </div>
                 </nav>
 
@@ -188,10 +195,10 @@
                     <div class="hero__icon-3d" ref="icon3dContainer"></div>
                     <div class="hero__text">
                         <div class="mask-wrap">
-                            <h1 class="hero__name mask-inner">SpaceSwitcher</h1>
+                            <h1 class="hero__name mask-inner">{{ t('hero.heading') }}</h1>
                         </div>
                         <div class="mask-wrap">
-                            <p class="hero__tagline mask-inner">Control Every Space.</p>
+                            <p class="hero__tagline mask-inner">{{ t('hero.tagline') }}</p>
                         </div>
                     </div>
                 </div>
@@ -205,14 +212,14 @@
                         <div class="content-label">
                             <svg class="section-label-icon" viewBox="0 0 14 14" fill="currentColor">
                                 <path d="M0 0L14 14H0V0Z" />
-                            </svg>Overview
+                            </svg>{{ t('overview.label') }}
                         </div>
                         <div class="content-body">
                             <div class="mask-wrap">
-                                <h2 class="heading-l mb-10 mask-inner">Per-space control over your <span class="text-editorial gradient-text">applications and Dock.</span></h2>
+                                <h2 class="heading-l mb-10 mask-inner" v-html="t('overview.headingHtml')"></h2>
                             </div>
                             <div class="mask-wrap">
-                                <p class="paragraph-l max-w-3xl mask-inner" style="color: var(--text-primary);">Define per-space app rules and custom Dock configurations. Built on <a href="https://desktoprenamer.mqiu.dev" target="_blank" style="color: var(--klein-blue-text);">DesktopRenamer</a>'s SpaceAPI, it reacts to space changes instantly.</p>
+                                <p class="paragraph-l max-w-3xl mask-inner" style="color: var(--text-primary);" v-html="t('overview.bodyHtml')"></p>
                             </div>
                         </div>
                     </div>
@@ -226,11 +233,11 @@
                         <div class="content-label">
                             <svg class="section-label-icon" viewBox="0 0 14 14" fill="currentColor">
                                 <path d="M0 0L14 14H0V0Z" />
-                            </svg>Features
+                            </svg>{{ t('features.label') }}
                         </div>
                         <div class="content-body">
                             <div class="mask-wrap">
-                                <h2 class="heading-l mask-inner">Automate every <span class="text-editorial gradient-text">workspace</span> transition.</h2>
+                                <h2 class="heading-l mask-inner" v-html="t('features.headingHtml')"></h2>
                             </div>
                         </div>
                     </div>
@@ -243,9 +250,9 @@
                         <div class="container" style="width: 100%;">
                             <div class="grid grid-cols-1 md:grid-cols-12 gap-0 items-center">
                                 <div class="md:col-span-5 md:pr-16">
-                                    <p class="text-sm font-semibold mb-3" style="font-family: 'Inter', sans-serif; letter-spacing: 0.01em; color: var(--klein-blue-text);">01 / Rules</p>
-                                    <h3 class="heading-l mb-4">App Rules <span class="text-editorial gradient-text">Per Space</span></h3>
-                                    <p class="text-lg" style="font-family: 'Inter', sans-serif; font-weight: 400; line-height: 1.4; letter-spacing: -0.02em; color: var(--text-primary);">Define which apps show, hide, or come to front when you switch spaces. Six action types — from simple show/hide to hotkey simulation.</p>
+                                    <p class="text-sm font-semibold mb-3" style="font-family: 'Inter', sans-serif; letter-spacing: 0.01em; color: var(--klein-blue-text);">{{ t('features.slide1num') }}</p>
+                                    <h3 class="heading-l mb-4" v-html="t('features.slide1title')"></h3>
+                                    <p class="text-lg" style="font-family: 'Inter', sans-serif; font-weight: 400; line-height: 1.4; letter-spacing: -0.02em; color: var(--text-primary);">{{ t('features.slide1body') }}</p>
                                 </div>
                                 <div class="md:col-span-7">
                                     <img v-if="isDark" src="../resources/demo/space-switcher/Rules-Dark.png" alt="SpaceSwitcher Rules" class="w-full rounded-lg" style="box-shadow: 0 20px 60px rgba(0,0,0,0.2);">
@@ -264,9 +271,9 @@
                                     <img v-else src="../resources/demo/space-switcher/Docks.png" alt="SpaceSwitcher Docks" class="w-full rounded-lg" style="box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
                                 </div>
                                 <div class="md:col-span-5 md:pl-16">
-                                    <p class="text-sm font-semibold mb-3" style="font-family: 'Inter', sans-serif; letter-spacing: 0.01em; color: var(--klein-blue-text);">02 / Docks</p>
-                                    <h3 class="heading-l mb-4">Custom Docks <span class="text-editorial gradient-text">Per Space</span></h3>
-                                    <p class="text-lg" style="font-family: 'Inter', sans-serif; font-weight: 400; line-height: 1.4; letter-spacing: -0.02em; color: var(--text-primary);">Assign different Dock configurations to different spaces. Add apps, spacers, and reorder items freely.</p>
+                                    <p class="text-sm font-semibold mb-3" style="font-family: 'Inter', sans-serif; letter-spacing: 0.01em; color: var(--klein-blue-text);">{{ t('features.slide2num') }}</p>
+                                    <h3 class="heading-l mb-4" v-html="t('features.slide2title')"></h3>
+                                    <p class="text-lg" style="font-family: 'Inter', sans-serif; font-weight: 400; line-height: 1.4; letter-spacing: -0.02em; color: var(--text-primary);">{{ t('features.slide2body') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -279,22 +286,22 @@
                 <div class="container">
                     <div class="content-grid mb-16">
                         <div class="content-label" style="font-size: 1.1rem; font-weight: 500; letter-spacing: -0.02em;">
-                            6 Action Types
+                            {{ t('moreFeatures.actionTypesLabel') }}
                         </div>
                         <div class="content-body">
                             <div class="mask-wrap">
-                                <p class="paragraph-m max-w-2xl mask-inner" style="color: var(--text-primary);">Show, Hide, Minimize, Bring to Front, App Shortcut, and Global Shortcut — chain them into workflows for each space group.</p>
+                                <p class="paragraph-m max-w-2xl mask-inner" style="color: var(--text-primary);">{{ t('moreFeatures.actionTypesBody') }}</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="content-grid mb-16">
                         <div class="content-label" style="font-size: 1.1rem; font-weight: 500; letter-spacing: -0.02em;">
-                            Hotkey Simulation
+                            {{ t('moreFeatures.hotkeyLabel') }}
                         </div>
                         <div class="content-body">
                             <div class="mask-wrap">
-                                <p class="paragraph-m max-w-2xl mask-inner" style="color: var(--text-primary);">Trigger app-specific or global keyboard shortcuts when switching spaces — sync in-app workspaces with your macOS spaces automatically.</p>
+                                <p class="paragraph-m max-w-2xl mask-inner" style="color: var(--text-primary);">{{ t('moreFeatures.hotkeyBody') }}</p>
                             </div>
                         </div>
                     </div>
@@ -310,14 +317,14 @@
                         <div class="content-label" style="color: rgba(255,255,255,0.7);">
                             <svg class="section-label-icon" viewBox="0 0 14 14" fill="currentColor" style="color: rgba(255,255,255,0.7);">
                                 <path d="M0 0L14 14H0V0Z" />
-                            </svg>Install
+                            </svg>{{ t('install.label') }}
                         </div>
                         <div class="content-body">
                             <div class="mask-wrap">
-                                <h2 class="heading-l mb-10 mask-inner" style="color: var(--pure-white);">Get started in <span class="text-editorial" style="color: var(--gold-light); font-style: italic;">seconds.</span></h2>
+                                <h2 class="heading-l mb-10 mask-inner" style="color: var(--pure-white);" v-html="t('install.headingHtml')"></h2>
                             </div>
                             <div class="mask-wrap mb-10">
-                                <p class="paragraph-l max-w-2xl mask-inner" style="color: rgba(255,255,255,0.9);">macOS 13.0+. Requires DesktopRenamer with SpaceAPI enabled. Drag to Applications, done.</p>
+                                <p class="paragraph-l max-w-2xl mask-inner" style="color: rgba(255,255,255,0.9);">{{ t('install.body') }}</p>
                             </div>
                             <div class="flex flex-wrap items-stretch gap-4 mb-6">
                                 <a href="https://github.com/gitmichaelqiu/SpaceSwitcher/releases" target="_blank" data-btn
@@ -325,14 +332,14 @@
                                     onmouseenter="this.style.background='var(--install-btn-hover)'; this.style.borderColor='var(--install-btn-hover)'; this.querySelector('[data-btn-text]').style.color='var(--pure-white)'; this.querySelector('[data-btn-bg]').style.background='var(--install-btn-hover)';"
                                     onmouseleave="this.style.background='var(--pure-white)'; this.style.borderColor='var(--pure-white)'; this.querySelector('[data-btn-text]').style.color='var(--klein-blue)'; this.querySelector('[data-btn-bg]').style.background='var(--pure-white)';">
                                     <div data-btn-bg style="background: var(--pure-white);"></div>
-                                    <div data-btn-inner data-text="Download">
-                                        <span data-btn-text style="color: var(--klein-blue);">Download</span>
+                                    <div data-btn-inner :data-text="t('install.download')">
+                                        <span data-btn-text style="color: var(--klein-blue);">{{ t('install.download') }}</span>
                                     </div>
                                 </a>
-                                <span class="self-center" style="font-size: 1.1rem; color: rgba(255,255,255,0.6); font-family: 'Inter', sans-serif; font-weight: 400;">or</span>
+                                <span class="self-center" style="font-size: 1.1rem; color: rgba(255,255,255,0.6); font-family: 'Inter', sans-serif; font-weight: 400;">{{ t('install.or') }}</span>
                                 <code class="brew-cmd" style="display: flex; align-items: center; gap: 0.8rem; padding: 1.0rem 1.2rem 1.0rem 1.8rem; font-size: 0.9rem; letter-spacing: 0.02em; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); word-break: break-all;">
                                     brew install --cask gitmichaelqiu/tap/spaceswitcher
-                                    <button @click="copyBrew" title="Copy"
+                                    <button @click="copyBrew" :title="t('install.copy')"
                                         style="flex-shrink: 0; width: 2.2rem; height: 2.2rem; display: flex; align-items: center; justify-content: center; border-radius: 4px; color: rgba(255,255,255,0.7); cursor: pointer; transition: all 0.2s ease;"
                                         onmouseenter="this.style.background='rgba(255,255,255,0.15)'; this.style.color='rgba(255,255,255,1)';"
                                         onmouseleave="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.7)';">
@@ -341,27 +348,26 @@
                                     </button>
                                 </code>
                             </div>
-                            <p style="font-size: 0.85rem; letter-spacing: -0.02em; color: rgba(255,255,255,0.6); max-width: 36rem;">
-                                Not signed with a paid Apple Developer account — go to <strong>System Settings → Privacy & Security</strong> if macOS blocks the app. Permissions are guided on first launch.
+                            <p style="font-size: 0.85rem; letter-spacing: -0.02em; color: rgba(255,255,255,0.6); max-width: 36rem;" v-html="t('install.disclaimer')">
                             </p>
 
                             <!-- DesktopRenamer prerequisite install -->
                             <div class="mt-10 pt-8" style="border-top: 1px solid rgba(255,255,255,0.1);">
-                                <p style="font-size: 0.9rem; color: rgba(255,255,255,0.55); font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 0.02em; margin-bottom: 0.8rem;">Prerequisite: Install DesktopRenamer first.</p>
+                                <p style="font-size: 0.9rem; color: rgba(255,255,255,0.55); font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 0.02em; margin-bottom: 0.8rem;">{{ t('install.prerequisite') }}</p>
                                 <div class="flex flex-wrap items-stretch gap-2">
                                     <a href="https://github.com/gitmichaelqiu/DesktopRenamer/releases" target="_blank" data-btn
                                         style="font-size: 0.85rem; letter-spacing: 0.02em; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); --install-btn-hover-dr: #0038c8;"
                                         onmouseenter="this.style.background='var(--install-btn-hover-dr)'; this.style.borderColor='var(--install-btn-hover-dr)'; this.querySelector('[data-btn-text]').style.color='var(--pure-white)'; this.querySelector('[data-btn-bg]').style.background='var(--install-btn-hover-dr)';"
                                         onmouseleave="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='rgba(255,255,255,0.25)'; this.querySelector('[data-btn-text]').style.color='rgba(255,255,255,0.9)'; this.querySelector('[data-btn-bg]').style.background='rgba(255,255,255,0.1)';">
                                         <div data-btn-bg style="background: rgba(255,255,255,0.1);"></div>
-                                        <div data-btn-inner data-text="Download DesktopRenamer">
-                                            <span data-btn-text style="color: rgba(255,255,255,0.9);">Download DesktopRenamer</span>
+                                        <div data-btn-inner :data-text="t('install.downloadDR')">
+                                            <span data-btn-text style="color: rgba(255,255,255,0.9);">{{ t('install.downloadDR') }}</span>
                                         </div>
                                     </a>
-                                    <span class="self-center" style="font-size: 0.8rem; color: rgba(255,255,255,0.4); font-family: 'Inter', sans-serif; font-weight: 400;">or</span>
+                                    <span class="self-center" style="font-size: 0.8rem; color: rgba(255,255,255,0.4); font-family: 'Inter', sans-serif; font-weight: 400;">{{ t('install.orDR') }}</span>
                                     <code style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.8rem 0.5rem 1.0rem; font-size: 0.7rem; letter-spacing: 0.02em; background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); word-break: break-all;">
                                         brew install --cask gitmichaelqiu/tap/desktoprenamer
-                                        <button @click="copyBrewDR" title="Copy"
+                                        <button @click="copyBrewDR" :title="t('install.copyDR')"
                                             style="flex-shrink: 0; width: 1.6rem; height: 1.6rem; display: flex; align-items: center; justify-content: center; border-radius: 3px; color: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.2s ease;"
                                             onmouseenter="this.style.background='rgba(255,255,255,0.12)'; this.style.color='rgba(255,255,255,0.9)';"
                                             onmouseleave="this.style.background='transparent'; this.style.color='rgba(255,255,255,0.5)';">
@@ -383,11 +389,11 @@
                         <div class="content-label">
                             <svg class="section-label-icon" viewBox="0 0 14 14" fill="currentColor">
                                 <path d="M0 0L14 14H0V0Z" />
-                            </svg>Companions
+                            </svg>{{ t('companions.label') }}
                         </div>
                         <div class="content-body">
                             <div class="mask-wrap">
-                                <h2 class="heading-l mb-10 mask-inner">Works great with <span class="text-editorial gradient-text">your</span> toolkit.</h2>
+                                <h2 class="heading-l mb-10 mask-inner" v-html="t('companions.headingHtml')"></h2>
                             </div>
                         </div>
                     </div>
@@ -396,13 +402,13 @@
                         <!-- DesktopRenamer -->
                         <div class="work-card" data-hover-follow
                             style="border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
-                            <h3 class="heading-l text-4xl">DesktopRenamer</h3>
-                            <p class="paragraph-m max-w-sm" style="color: var(--text-primary);">Rename your macOS spaces and enable the SpaceAPI that SpaceSwitcher depends on. The essential companion.</p>
+                            <h3 class="heading-l text-4xl">{{ t('companions.desktoprenamerTitle') }}</h3>
+                            <p class="paragraph-m max-w-sm" style="color: var(--text-primary);">{{ t('companions.desktoprenamerBody') }}</p>
                             <div class="work-meta">
                                 <a href="https://desktoprenamer.mqiu.dev" target="_blank" data-btn class="ml-auto" style="font-size: 1.2rem; letter-spacing: 0em;">
                                     <div data-btn-bg></div>
-                                    <div data-btn-inner data-text="Learn More">
-                                        <span data-btn-text>Learn More</span>
+                                    <div data-btn-inner :data-text="t('companions.learnMore')">
+                                        <span data-btn-text>{{ t('companions.learnMore') }}</span>
                                     </div>
                                 </a>
                             </div>
@@ -412,13 +418,13 @@
                         <!-- OptClicker -->
                         <div class="work-card" data-hover-follow
                             style="border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
-                            <h3 class="heading-l text-4xl">OptClicker</h3>
-                            <p class="paragraph-m max-w-sm" style="color: var(--text-primary);">Right-click with the Option key. A simple utility that complements your macOS workspace workflow.</p>
+                            <h3 class="heading-l text-4xl">{{ t('companions.optclickerTitle') }}</h3>
+                            <p class="paragraph-m max-w-sm" style="color: var(--text-primary);">{{ t('companions.optclickerBody') }}</p>
                             <div class="work-meta">
                                 <a href="https://optclicker.mqiu.dev" target="_blank" data-btn class="ml-auto" style="font-size: 1.2rem; letter-spacing: 0em;">
                                     <div data-btn-bg></div>
-                                    <div data-btn-inner data-text="Learn More">
-                                        <span data-btn-text>Learn More</span>
+                                    <div data-btn-inner :data-text="t('companions.learnMore')">
+                                        <span data-btn-text>{{ t('companions.learnMore') }}</span>
                                     </div>
                                 </a>
                             </div>
@@ -448,35 +454,35 @@
                                     d="M790.05,211.64c2.79,4.74,7.36,4.74,10.15,0L919.75,8.62C922.54,3.88,920.32,0,914.82,0h-239.41c-5.5,0-7.72,3.88-4.93,8.62l119.55,203.03Z" />
                             </svg>
                         </a>
-                        <p class="text-xs text-white/70" style="font-family:'Inter',sans-serif;">&copy; 2026 - Michael Qiu.</p>
+                        <p class="text-xs text-white/70" style="font-family:'Inter',sans-serif;">{{ t('footer.copyright') }}</p>
                     </div>
                     <div class="md:col-span-2">
-                        <p class="footer-nav-label" style="margin-bottom:0.35rem;">Page</p>
+                        <p class="footer-nav-label" style="margin-bottom:0.35rem;">{{ t('quicknav.page') }}</p>
                         <div class="flex flex-col gap-1">
-                            <a @click.prevent="handleNavClick('overview')" href="#overview" class="footer-nav-link">Overview</a>
-                            <a @click.prevent="handleNavClick('features')" href="#features" class="footer-nav-link">Features</a>
-                            <a @click.prevent="handleNavClick('install')" href="#install" class="footer-nav-link">Install</a>
+                            <a @click.prevent="handleNavClick('overview')" href="#overview" class="footer-nav-link">{{ t('quicknav.overview') }}</a>
+                            <a @click.prevent="handleNavClick('features')" href="#features" class="footer-nav-link">{{ t('quicknav.features') }}</a>
+                            <a @click.prevent="handleNavClick('install')" href="#install" class="footer-nav-link">{{ t('quicknav.install') }}</a>
                         </div>
                     </div>
                     <div class="md:col-span-2">
-                        <p class="footer-nav-label" style="margin-bottom:0.35rem;">Links</p>
+                        <p class="footer-nav-label" style="margin-bottom:0.35rem;">{{ t('quicknav.links') }}</p>
                         <div class="flex flex-col gap-1">
-                            <a href="https://github.com/gitmichaelqiu/SpaceSwitcher" target="_blank" class="footer-nav-link">GitHub</a>
-                            <a href="https://github.com/gitmichaelqiu/SpaceSwitcher/releases" target="_blank" class="footer-nav-link">Releases</a>
+                            <a href="https://github.com/gitmichaelqiu/SpaceSwitcher" target="_blank" class="footer-nav-link">{{ t('quicknav.github') }}</a>
+                            <a href="https://github.com/gitmichaelqiu/SpaceSwitcher/releases" target="_blank" class="footer-nav-link">{{ t('quicknav.releases') }}</a>
                         </div>
                     </div>
                     <div class="md:col-span-3">
-                        <p class="footer-nav-label" style="margin-bottom:0.35rem;">More</p>
+                        <p class="footer-nav-label" style="margin-bottom:0.35rem;">{{ t('quicknav.more') }}</p>
                         <div class="flex flex-col gap-1">
-                            <a href="https://mqiu.dev" class="footer-nav-link">Portfolio</a>
-                            <a href="https://desktoprenamer.mqiu.dev" target="_blank" class="footer-nav-link">DesktopRenamer</a>
-                            <a href="https://optclicker.mqiu.dev" target="_blank" class="footer-nav-link">OptClicker</a>
+                            <a href="https://mqiu.dev" class="footer-nav-link">{{ t('quicknav.portfolio') }}</a>
+                            <a href="https://desktoprenamer.mqiu.dev" target="_blank" class="footer-nav-link">{{ t('quicknav.desktoprenamer') }}</a>
+                            <a href="https://optclicker.mqiu.dev" target="_blank" class="footer-nav-link">{{ t('quicknav.optclicker') }}</a>
                         </div>
                     </div>
                 </div>
                 <div class="border-t border-white/10 pt-8 mt-8">
                     <div class="text-[clamp(2.5rem,8vw,10rem)] font-black tracking-tighter leading-none">
-                        SpaceSwitcher.
+                        {{ t('footer.brand') }}
                     </div>
                 </div>
             </div>
@@ -487,13 +493,7 @@
             <aside v-if="isSidebarOpen" class="fixed inset-0 sidebar-rk z-[10001] flex flex-col">
                 <div class="container flex-1 flex flex-col justify-center">
                     <div class="flex flex-col" style="gap: 1rem;">
-                        <a v-for="link in [
-                            {id: 'home', label: 'Home'},
-                            {id: 'overview', label: 'Overview'},
-                            {id: 'features', label: 'Features'},
-                            {id: 'install', label: 'Install'},
-                            {id: 'companions', label: 'Companions'}
-                        ]" :key="link.id" :href="'#'+link.id" @click.prevent="handleNavClick(link.id)"
+                        <a v-for="link in sidebarLinks" :key="link.id" :href="'#'+link.id" @click.prevent="handleNavClick(link.id)"
                             class="sidebar-link">
                             <div class="mask-wrap">
                                 <span class="mask-inner">{{ link.label }}</span>
@@ -501,7 +501,7 @@
                         </a>
                         <a href="https://github.com/gitmichaelqiu/SpaceSwitcher" target="_blank" class="sidebar-link group">
                             <div class="mask-wrap">
-                                <span class="mask-inner">GitHub<i data-lucide="arrow-up-right" class="sidebar-ext-icon"></i></span>
+                                <span class="mask-inner">{{ t('sidebar.github') }}<i data-lucide="arrow-up-right" class="sidebar-ext-icon"></i></span>
                             </div>
                         </a>
                     </div>
@@ -621,16 +621,98 @@
             var onUnmounted = Vue.onUnmounted;
             var nextTick = Vue.nextTick;
             var watch = Vue.watch;
+            var computed = Vue.computed;
 
             gsap.registerPlugin(ScrollTrigger);
 
             createApp({
                 setup: function () {
+                    // ── Translations ──
+                    var translations = {
+                        en: {
+                            site: { title: 'SpaceSwitcher — Control Every Space' },
+                            hero: { heading: 'SpaceSwitcher', tagline: 'Control Every Space.' },
+                            quicknav: { page: 'Page', links: 'Links', more: 'More', overview: 'Overview', features: 'Features', install: 'Install', github: 'GitHub', releases: 'Releases', portfolio: 'Portfolio', desktoprenamer: 'DesktopRenamer', optclicker: 'OptClicker' },
+                            overview: { label: 'Overview', headingHtml: 'Per-space control over your <span class="text-editorial gradient-text">applications and Dock.</span>', bodyHtml: 'Define per-space app rules and custom Dock configurations. Built on <a href="https://desktoprenamer.mqiu.dev" target="_blank" style="color: var(--klein-blue-text);">DesktopRenamer</a>\'s SpaceAPI, it reacts to space changes instantly.' },
+                            features: { label: 'Features', headingHtml: 'Automate every <span class="text-editorial gradient-text">workspace</span> transition.', slide1num: '01 / Rules', slide1title: 'App Rules <span class="text-editorial gradient-text">Per Space</span>', slide1body: 'Define which apps show, hide, or come to front when you switch spaces. Six action types — from simple show/hide to hotkey simulation.', slide2num: '02 / Docks', slide2title: 'Custom Docks <span class="text-editorial gradient-text">Per Space</span>', slide2body: 'Assign different Dock configurations to different spaces. Add apps, spacers, and reorder items freely.' },
+                            moreFeatures: { actionTypesLabel: '6 Action Types', actionTypesBody: 'Show, Hide, Minimize, Bring to Front, App Shortcut, and Global Shortcut — chain them into workflows for each space group.', hotkeyLabel: 'Hotkey Simulation', hotkeyBody: 'Trigger app-specific or global keyboard shortcuts when switching spaces — sync in-app workspaces with your macOS spaces automatically.' },
+                            install: { label: 'Install', headingHtml: 'Get started in <span class="text-editorial" style="color: var(--gold-light); font-style: italic;">seconds.</span>', body: 'macOS 13.0+. Requires DesktopRenamer with SpaceAPI enabled. Drag to Applications, done.', download: 'Download', or: 'or', copy: 'Copy', disclaimer: 'Not signed with a paid Apple Developer account — go to <strong>System Settings → Privacy & Security</strong> if macOS blocks the app. Permissions are guided on first launch.', prerequisite: 'Prerequisite: Install DesktopRenamer first.', downloadDR: 'Download DesktopRenamer', orDR: 'or', copyDR: 'Copy' },
+                            companions: { label: 'Companions', headingHtml: 'Works great with <span class="text-editorial gradient-text">your</span> toolkit.', desktoprenamerTitle: 'DesktopRenamer', desktoprenamerBody: 'Rename your macOS spaces and enable the SpaceAPI that SpaceSwitcher depends on. The essential companion.', optclickerTitle: 'OptClicker', optclickerBody: 'Right-click with the Option key. A simple utility that complements your macOS workspace workflow.', learnMore: 'Learn More' },
+                            footer: { copyright: '© 2026 - Michael Qiu.', brand: 'SpaceSwitcher.' },
+                            sidebar: { home: 'Home', overview: 'Overview', features: 'Features', install: 'Install', companions: 'Companions', github: 'GitHub' },
+                            sectionLabels: { home: 'Home', overview: 'Overview', features: 'Features', 'more-features': 'Features', install: 'Install', companions: 'Companions' }
+                        },
+                        zh: {
+                            site: { title: 'SpaceSwitcher — 掌控每个空间' },
+                            hero: { heading: 'SpaceSwitcher', tagline: '掌控每个空间。' },
+                            quicknav: { page: '页面', links: '链接', more: '更多', overview: '概览', features: '功能', install: '安装', github: 'GitHub', releases: '发布', portfolio: '主页', desktoprenamer: 'DesktopRenamer', optclicker: 'OptClicker' },
+                            overview: { label: '概览', headingHtml: '对<span class="text-editorial gradient-text">应用和 Dock</span>进行按空间控制。', bodyHtml: '定义每个空间的应用规则和自定义 Dock 配置。基于 <a href="https://desktoprenamer.mqiu.dev" target="_blank" style="color: var(--klein-blue-text);">DesktopRenamer</a> 的 SpaceAPI 构建，即时响应空间变化。' },
+                            features: { label: '功能', headingHtml: '自动化每个<span class="text-editorial gradient-text">工作区</span>切换。', slide1num: '01 / 规则', slide1title: '按<span class="text-editorial gradient-text">空间</span>设置应用规则', slide1body: '定义切换空间时哪些应用显示、隐藏或置顶。六种操作类型——从简单的显示/隐藏到热键模拟。', slide2num: '02 / Dock', slide2title: '按<span class="text-editorial gradient-text">空间</span>自定义 Dock', slide2body: '为不同空间分配不同的 Dock 配置。自由添加应用、分隔符和重新排序项目。' },
+                            moreFeatures: { actionTypesLabel: '6 种操作类型', actionTypesBody: '显示、隐藏、最小化、置顶、应用快捷键和全局快捷键——将它们串联成每个空间组的工作流。', hotkeyLabel: '热键模拟', hotkeyBody: '切换空间时触发应用特定或全局键盘快捷键——将应用内工作区与你的 macOS 空间自动同步。' },
+                            install: { label: '安装', headingHtml: '几秒钟即可<span class="text-editorial" style="color: var(--gold-light); font-style: italic;">开始。</span>', body: 'macOS 13.0+。需要 DesktopRenamer 并启用 SpaceAPI。拖入 Applications 文件夹，完成。', download: '下载', or: '或', copy: '复制', disclaimer: '未使用付费 Apple 开发者账号签名——如果 macOS 阻止该应用，请前往<strong>系统设置 → 隐私与安全性</strong>。首次启动时会引导完成权限设置。', prerequisite: '前提：请先安装 DesktopRenamer。', downloadDR: '下载 DesktopRenamer', orDR: '或', copyDR: '复制' },
+                            companions: { label: '配套工具', headingHtml: '与<span class="text-editorial gradient-text">你的</span>工具包完美配合。', desktoprenamerTitle: 'DesktopRenamer', desktoprenamerBody: '重命名你的 macOS 空间并启用 SpaceSwitcher 所依赖的 SpaceAPI。必不可少的配套工具。', optclickerTitle: 'OptClicker', optclickerBody: '用 Option 键实现右键点击。一款简单实用工具，配合你的 macOS 工作区工作流使用。', learnMore: '了解更多' },
+                            footer: { copyright: '© 2026 - Michael Qiu.', brand: 'SpaceSwitcher.' },
+                            sidebar: { home: '首页', overview: '概览', features: '功能', install: '安装', companions: '配套工具', github: 'GitHub' },
+                            sectionLabels: { home: '首页', overview: '概览', features: '功能', 'more-features': '功能', install: '安装', companions: '配套工具' }
+                        }
+                    };
+
+                    // ── Language ──
+                    var DEFAULT_LANG = 'en';
+                    var LANG_KEY = 'lang';
+                    function getStoredLang() {
+                        try { return localStorage.getItem(LANG_KEY); } catch (e) { return null; }
+                    }
+                    function setStoredLang(val) { try { localStorage.setItem(LANG_KEY, val); } catch (e) {} }
+                    var lang = ref(getStoredLang() || DEFAULT_LANG);
+
+                    function toggleLang() {
+                        lang.value = lang.value === 'en' ? 'zh' : 'en';
+                        setStoredLang(lang.value);
+                        nextTick(function () { lucide.createIcons(); });
+                    }
+
+                    function t(key) {
+                        var keys = key.split('.');
+                        var result = translations[lang.value];
+                        for (var i = 0; i < keys.length; i++) {
+                            if (result == null) break;
+                            result = result[keys[i]];
+                        }
+                        if (result == null) {
+                            result = translations['en'];
+                            for (var i = 0; i < keys.length; i++) {
+                                if (result == null) break;
+                                result = result[keys[i]];
+                            }
+                        }
+                        return result != null ? result : key;
+                    }
+
+                    var sectionLabels = computed(function () {
+                        return translations[lang.value].sectionLabels;
+                    });
+
+                    var sidebarLinks = computed(function () {
+                        return [
+                            { id: 'home', label: t('sidebar.home') },
+                            { id: 'overview', label: t('sidebar.overview') },
+                            { id: 'features', label: t('sidebar.features') },
+                            { id: 'install', label: t('sidebar.install') },
+                            { id: 'companions', label: t('sidebar.companions') }
+                        ];
+                    });
+
+                    watch(lang, function (val) {
+                        document.documentElement.lang = val;
+                        document.title = t('site.title');
+                    }, { immediate: true });
+
+                    // ── App State ──
                     var isSidebarOpen = ref(false);
                     var activeSection = ref('home');
                     var showNavDock = ref(false);
                     var navDockBottom = ref('2rem');
-                    var sectionLabels = { home: 'Home', overview: 'Overview', features: 'Features', 'more-features': 'Features', install: 'Install', companions: 'Companions' };
                     var brewCopied = ref(false);
                     var brewCopiedDR = ref(false);
                     var icon3dContainer = ref(null);
@@ -841,7 +923,7 @@
 
                     function closeSidebar(callback) {
                         gsap.to('.sidebar-rk .mask-inner', {
-                            y: "100%",
+                            y: "105%",
                             duration: 0.5,
                             stagger: 0.05,
                             ease: "expo.in",
@@ -865,7 +947,7 @@
                             nextTick(function () {
                                 lucide.createIcons();
                                 gsap.from('.sidebar-rk .mask-inner', {
-                                    y: "100%",
+                                    y: "105%",
                                     duration: 1,
                                     stagger: 0.1,
                                     ease: "expo.out",
@@ -910,7 +992,7 @@
                         gsap.set(labelText, { opacity: 0 });
 
                         sectionLabelClone = document.createElement('span');
-                        sectionLabelClone.textContent = sectionLabels[oldSection] || oldSection;
+                        sectionLabelClone.textContent = sectionLabels.value[oldSection] || oldSection;
                         sectionLabelClone.style.cssText = 'display:block;white-space:nowrap;';
                         label.appendChild(sectionLabelClone);
 
@@ -1031,7 +1113,7 @@
                                 var masks = sec.querySelectorAll('.mask-inner');
                                 if (masks.length > 0) {
                                     gsap.from(masks, {
-                                        y: "100%",
+                                        y: "105%",
                                         duration: 1.8,
                                         stagger: 0.15,
                                         ease: "power4.out",
@@ -1165,7 +1247,11 @@
                         copyBrewDR: copyBrewDR,
                         brewCopiedDR: brewCopiedDR,
                         icon3dContainer: icon3dContainer,
-                        particleCanvas: particleCanvas
+                        particleCanvas: particleCanvas,
+                        lang: lang,
+                        toggleLang: toggleLang,
+                        t: t,
+                        sidebarLinks: sidebarLinks
                     };
                 }
             }).mount('#app');
