@@ -640,7 +640,11 @@
                     function setLang(l) {
                         lang.value = l;
                         setStoredLang(l);
-                        nextTick(function () { lucide.createIcons(); });
+                        nextTick(function () {
+                            ScrollTrigger.getAll().forEach(function (st) { st.kill(); });
+                            initScrollAnimations();
+                            lucide.createIcons();
+                        });
                     }
 
                     function t(key) {
@@ -1079,36 +1083,39 @@
                                 .to('.hero__text .mask-inner', { y: 0, visibility: 'visible', duration: 0.8, stagger: 0.15, ease: "expo.out" }, "-=0.3")
                                 .from('.hero__quicknav', { opacity: 0, duration: 0.5, ease: "power2.out" }, "-=0.3");
 
-                            // Mask Reveals for subsequent sections
-                            gsap.utils.toArray('.section-rk:not(#home)').forEach(function (sec) {
-                                var masks = sec.querySelectorAll('.mask-inner');
-                                if (masks.length > 0) {
-                                    gsap.from(masks, {
-                                        y: "105%",
-                                        duration: 1.8,
-                                        stagger: 0.15,
-                                        ease: "power4.out",
-                                        scrollTrigger: {
-                                            trigger: sec,
-                                            start: "top 85%",
-                                        }
-                                    });
-                                }
-                            });
-
-                            // Gradient Parallax on editorial text
-                            gsap.utils.toArray('.gradient-text').forEach(function (el) {
-                                gsap.to(el, {
-                                    backgroundPosition: '100% 50%',
-                                    ease: 'none',
-                                    scrollTrigger: {
-                                        trigger: el,
-                                        start: 'top bottom',
-                                        end: 'bottom top',
-                                        scrub: true
+                            function initScrollAnimations() {
+                                gsap.utils.toArray('.section-rk:not(#home)').forEach(function (sec) {
+                                    var masks = sec.querySelectorAll('.mask-inner');
+                                    if (masks.length > 0) {
+                                        gsap.from(masks, {
+                                            y: "105%",
+                                            duration: 1.8,
+                                            stagger: 0.15,
+                                            ease: "power4.out",
+                                            scrollTrigger: {
+                                                trigger: sec,
+                                                start: "top 85%",
+                                            }
+                                        });
                                     }
                                 });
-                            });
+
+                                // Gradient Parallax on editorial text
+                                gsap.utils.toArray('.gradient-text').forEach(function (el) {
+                                    gsap.to(el, {
+                                        backgroundPosition: '100% 50%',
+                                        ease: 'none',
+                                        scrollTrigger: {
+                                            trigger: el,
+                                            start: 'top bottom',
+                                            end: 'bottom top',
+                                            scrub: true
+                                        }
+                                    });
+                                });
+                            }
+
+                            initScrollAnimations();
 
                             // ── Hover Follower ──
                             var cards = document.querySelectorAll('[data-hover-follow]');
