@@ -13,16 +13,16 @@ window.i18n = {
         sectionLabels: { home: 'Home', overview: 'Overview', features: 'Features', 'more-features': 'Features', install: 'Install', companions: 'Companions' }
     },
     zh: {
-        site: { title: 'SpaceSwitcher — 掌控每个空间' },
-        hero: { heading: 'SpaceSwitcher', tagline: '掌控每个空间。' },
+        site: { title: 'SpaceSwitcher — 掌控每个桌面' },
+        hero: { heading: 'SpaceSwitcher', tagline: '掌控每个桌面。' },
         quicknav: { page: '页面', links: '链接', more: '更多', overview: '概览', features: '功能', install: '安装', github: 'GitHub', releases: '发布', portfolio: '主页', desktoprenamer: 'DesktopRenamer', optclicker: 'OptClicker' },
-        overview: { label: '概览', headingHtml: '对<span class="text-editorial gradient-text">应用和 Dock</span>进行按空间控制。', bodyHtml: '定义每个空间的应用规则和自定义 Dock 配置。基于 <a href="https://desktoprenamer.mqiu.dev" target="_blank" style="color: var(--klein-blue-text);">DesktopRenamer</a> 的 SpaceAPI 构建，即时响应空间变化。' },
-        features: { label: '功能', headingHtml: '自动化每个<span class="text-editorial gradient-text">工作区</span>切换。', slide1num: '01 / 规则', slide1title: '按<span class="text-editorial gradient-text">空间</span>设置应用规则', slide1body: '定义切换空间时哪些应用显示、隐藏或置顶。六种操作类型——从简单的显示/隐藏到热键模拟。', slide2num: '02 / Dock', slide2title: '按<span class="text-editorial gradient-text">空间</span>自定义 Dock', slide2body: '为不同空间分配不同的 Dock 配置。自由添加应用、分隔符和重新排序项目。' },
-        moreFeatures: { actionTypesLabel: '6 种操作类型', actionTypesBody: '显示、隐藏、最小化、置顶、应用快捷键和全局快捷键——将它们串联成每个空间组的工作流。', hotkeyLabel: '热键模拟', hotkeyBody: '切换空间时触发应用特定或全局键盘快捷键——将应用内工作区与你的 macOS 空间自动同步。' },
-        install: { label: '安装', headingHtml: '几秒钟即可<span class="text-editorial" style="color: var(--gold-light); font-style: italic;">开始。</span>', body: 'macOS 13.0+。需要 DesktopRenamer 并启用 SpaceAPI。拖入 Applications 文件夹，完成。', download: '下载', or: '或', copy: '复制', disclaimer: '未使用付费 Apple 开发者账号签名——如果 macOS 阻止该应用，请前往<strong>系统设置 → 隐私与安全性</strong>。首次启动时会引导完成权限设置。', prerequisite: '前提：请先安装 DesktopRenamer。', downloadDR: '下载 DesktopRenamer', orDR: '或', copyDR: '复制' },
-        companions: { label: '配套工具', headingHtml: '与<span class="text-editorial gradient-text">你的</span>工具包完美配合。', desktoprenamerTitle: 'DesktopRenamer', desktoprenamerBody: '重命名你的 macOS 空间并启用 SpaceSwitcher 所依赖的 SpaceAPI。必不可少的配套工具。', optclickerTitle: 'OptClicker', optclickerBody: '用 Option 键实现右键点击。一款简单实用工具，配合你的 macOS 工作区工作流使用。', learnMore: '了解更多' },
+        overview: { label: '概览', headingHtml: '对<span class="text-editorial gradient-text"> App 和 Dock</span> 分桌面控制。', bodyHtml: '定义每个桌面的 App 行为规则并自定义程序坞。基于 <a href="https://desktoprenamer.mqiu.dev" target="_blank" style="color: var(--klein-blue-text);">DesktopRenamer</a> 构建，即时响应桌面变化。' },
+        features: { label: '功能', headingHtml: '自动化你的每个<span class="text-editorial gradient-text">工作区。</span>', slide1num: '01 / 规则', slide1title: '按<span class="text-editorial gradient-text">桌面</span>设置 App 规则', slide1body: '定义切换桌面时哪些 App 显示、隐藏或置顶。六种操作类型——从简单的显示/隐藏到快捷键模拟。', slide2num: '02 / Dock', slide2title: '按<span class="text-editorial gradient-text">桌面</span>自定义 Dock', slide2body: '为不同桌面分配不同的 Dock 配置。自由添加 App 、分隔符和重新排序项目。' },
+        moreFeatures: { actionTypesLabel: '6 种操作类型', actionTypesBody: '显示、隐藏、最小化、置顶、 App 快捷键和全局快捷键——将它们串联成每个桌面组的工作流。', hotkeyLabel: '快捷键模拟', hotkeyBody: '切换桌面时触发 App 特定或全局键盘快捷键——将 App 内工作区与你的 macOS 桌面自动同步。' },
+        install: { label: '安装', headingHtml: '即刻<span class="text-editorial" style="color: var(--gold-light);">开始。</span>', body: 'macOS 13.0+。需要 DesktopRenamer 并启用 SpaceAPI。拖入 Applications 文件夹，完成。', download: '下载', or: '或', copy: '复制', disclaimer: '未使用付费 Apple 开发者账号签名——如果 macOS 阻止该 App ，请前往<strong>系统设置 → 隐私与安全性</strong>。首次启动时会引导完成权限设置。', prerequisite: '前置：请先安装 DesktopRenamer。', downloadDR: '下载 DesktopRenamer', orDR: '或', copyDR: '复制' },
+        companions: { label: '配套', headingHtml: '完美契合你的<span class="text-editorial gradient-text">工作流。</span>', desktoprenamerTitle: 'DesktopRenamer', desktoprenamerBody: '重命名你的 macOS 空间，重命名你的体验。SpaceSwitcher 的前置。', optclickerTitle: 'OptClicker', optclickerBody: '用 Option 键实现右键点击。一款简单实用工具，配合你的 macOS 工作流使用。', learnMore: '了解更多' },
         footer: { copyright: '© 2026 - Michael Qiu.', brand: 'SpaceSwitcher.' },
-        sidebar: { home: '首页', overview: '概览', features: '功能', install: '安装', companions: '配套工具', github: 'GitHub' },
-        sectionLabels: { home: '首页', overview: '概览', features: '功能', 'more-features': '功能', install: '安装', companions: '配套工具' }
+        sidebar: { home: '首页', overview: '概览', features: '功能', install: '安装', companions: '配套', github: 'GitHub' },
+        sectionLabels: { home: '首页', overview: '概览', features: '功能', 'more-features': '功能', install: '安装', companions: '配套' }
     }
 };
