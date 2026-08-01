@@ -310,7 +310,7 @@
                 <canvas ref="particleCanvas" class="absolute inset-0 z-[1] pointer-events-none"></canvas>
                 <nav class="hero__quicknav hide-mobile">
                     <div class="hero__quicknav-logo">
-                        <a href="/" aria-label="Michael Qiu Home" style="cursor:pointer!important">
+                        <a href="https://mqiu.dev" aria-label="Michael Qiu Home" style="cursor:pointer!important">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1039.8 581.48" fill="white"
                                 style="width:4.5rem;height:auto">
                                 <path fill-rule="evenodd"
@@ -337,11 +337,13 @@
                             <a href="https://github.com/gitmichaelqiu/SpaceSwitcher/releases" target="_blank" class="hero__quicknav-link">{{ t('quicknav.releases') }}</a>
                         </div>
                         <div class="hero__quicknav-col">
-                            <div class="hero__quicknav-label">{{ t('quicknav.more') }}</div>
+                            <div class="hero__quicknav-label">{{ t('quicknav.more') }} <span class="suite-series">/ {{ t('quicknav.workflowSuite') }}</span></div>
                             <a href="https://mqiu.dev" class="hero__quicknav-link">{{ t('quicknav.portfolio') }}</a>
                             <a href="https://mqiu.dev/blog" target="_blank" class="hero__quicknav-link">{{ t('quicknav.blog') }}</a>
                             <a href="https://desktoprenamer.mqiu.dev" target="_blank" class="hero__quicknav-link">{{ t('quicknav.desktoprenamer') }}</a>
                             <a href="https://optclicker.mqiu.dev" target="_blank" class="hero__quicknav-link">{{ t('quicknav.optclicker') }}</a>
+                            <div class="hero__quicknav-label"><span class="suite-series">/ {{ t('quicknav.mediaSuite') }}</span></div>
+                            <a href="https://vtplayer.mqiu.dev" target="_blank" class="hero__quicknav-link">VTPlayer</a>
                         </div>
                     </div>
                     <div class="hero__quicknav-lang">
@@ -549,7 +551,7 @@
                         <div class="content-label">
                             <svg class="section-label-icon" viewBox="0 0 14 14" fill="currentColor">
                                 <path d="M0 0L14 14H0V0Z" />
-                            </svg>{{ t('companions.label') }} <span class="suite-series">/ {{ t('companions.workflowSuite') }}</span>
+                            </svg>{{ t('companions.label') }}
                         </div>
                         <div class="content-body">
                             <div class="mask-wrap">
@@ -558,7 +560,8 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-0" style="border-left: 1px solid var(--border-color);">
+                    <div class="companion-series-label"><span class="suite-series">/ {{ t('companions.workflowSuite') }}</span></div>
+                    <div class="companions-grid grid grid-cols-1 md:grid-cols-2 gap-0" style="border-left: 1px solid var(--border-color);">
                         <!-- DesktopRenamer -->
                         <div class="work-card" data-hover-follow
                             style="border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
@@ -593,7 +596,7 @@
                     </div>
 
                     <div class="companion-series-label"><span class="suite-series">/ {{ t('companions.mediaSuite') }}</span></div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-0" style="border-left: 1px solid var(--border-color);">
+                    <div class="companions-grid grid grid-cols-1 md:grid-cols-2 gap-0" style="border-left: 1px solid var(--border-color);">
                         <div class="work-card" data-hover-follow
                             style="border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
                             <h3 class="heading-l text-4xl">{{ t('companions.vtplayerTitle') }}</h3>
@@ -618,7 +621,7 @@
             <div class="container">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
                     <div class="md:col-span-5">
-                        <a href="#" @click.prevent="scrollToTop" class="inline-block mb-3" aria-label="Back to top">
+                        <a href="https://mqiu.dev" class="inline-block mb-3" aria-label="Michael Qiu Home">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1039.8 581.48" fill="white"
                                 style="width:2.5rem;height:auto">
                                 <path fill-rule="evenodd"
@@ -649,12 +652,14 @@
                         </div>
                     </div>
                     <div class="md:col-span-3">
-                        <p class="footer-nav-label" style="margin-bottom:0.35rem;">{{ t('quicknav.more') }}</p>
+                            <p class="footer-nav-label" style="margin-bottom:0.35rem;">{{ t('quicknav.more') }} <span class="suite-series">/ {{ t('quicknav.workflowSuite') }}</span></p>
                         <div class="flex flex-col gap-1">
                             <a href="https://mqiu.dev" class="footer-nav-link">{{ t('quicknav.portfolio') }}</a>
                             <a href="https://mqiu.dev/blog" target="_blank" class="footer-nav-link">{{ t('quicknav.blog') }}</a>
                             <a href="https://desktoprenamer.mqiu.dev" target="_blank" class="footer-nav-link">{{ t('quicknav.desktoprenamer') }}</a>
                             <a href="https://optclicker.mqiu.dev" target="_blank" class="footer-nav-link">{{ t('quicknav.optclicker') }}</a>
+                            <p class="footer-nav-label" style="margin:0.8rem 0 0.35rem;"><span class="suite-series">/ {{ t('quicknav.mediaSuite') }}</span></p>
+                            <a href="https://vtplayer.mqiu.dev" target="_blank" class="footer-nav-link">VTPlayer</a>
                         </div>
                     </div>
                 </div>
