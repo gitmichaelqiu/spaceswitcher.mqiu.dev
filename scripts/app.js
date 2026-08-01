@@ -347,7 +347,8 @@
                     //     });
                     // }
 
-                    // ── Animation Sequence ──
+                    // ── Animation Sequence (gated on resource preloader) ──
+                    (window.__resourcesReady || Promise.resolve()).then(function () {
                     var tl = gsap.timeline();
 
                     tl.set('body', { opacity: 1 })
@@ -361,6 +362,7 @@
                         .from('.hero__logo', { scale: 0.92, opacity: 0, y: 24, duration: 0.7, ease: "power3.out" }, "-=0.45")
                         .to('.hero__text .mask-inner', { y: 0, visibility: 'visible', duration: 0.8, stagger: 0.15, ease: "expo.out" }, "-=0.3")
                         .from('.hero__quicknav', { opacity: 0, duration: 0.5, ease: "power2.out" }, "-=0.3");
+                    });
 
                     // Particles start spreading immediately
                     gsap.to(particles.state, { progress: 1, duration: 3.0, ease: "power2.out" });
