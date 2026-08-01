@@ -352,6 +352,12 @@ html.dark .glass-strong {
     opacity: 0.65;
 }
 
+.hero__quicknav-series-cols,
+.footer-series-cols {
+    display: flex;
+    gap: 2rem;
+}
+
 .companions-grid .work-card:nth-child(even) {
     padding-top: 4rem;
 }

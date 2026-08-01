@@ -335,15 +335,19 @@
                             <div class="hero__quicknav-label">{{ t('quicknav.links') }}</div>
                             <a href="https://github.com/gitmichaelqiu/SpaceSwitcher" target="_blank" class="hero__quicknav-link">{{ t('quicknav.github') }}</a>
                             <a href="https://github.com/gitmichaelqiu/SpaceSwitcher/releases" target="_blank" class="hero__quicknav-link">{{ t('quicknav.releases') }}</a>
-                        </div>
-                        <div class="hero__quicknav-col">
-                            <div class="hero__quicknav-label">{{ t('quicknav.more') }} <span class="suite-series">/ {{ t('quicknav.workflowSuite') }}</span></div>
                             <a href="https://mqiu.dev" class="hero__quicknav-link">{{ t('quicknav.portfolio') }}</a>
                             <a href="https://mqiu.dev/blog" target="_blank" class="hero__quicknav-link">{{ t('quicknav.blog') }}</a>
-                            <a href="https://desktoprenamer.mqiu.dev" target="_blank" class="hero__quicknav-link">{{ t('quicknav.desktoprenamer') }}</a>
-                            <a href="https://optclicker.mqiu.dev" target="_blank" class="hero__quicknav-link">{{ t('quicknav.optclicker') }}</a>
-                            <div class="hero__quicknav-label"><span class="suite-series">/ {{ t('quicknav.mediaSuite') }}</span></div>
-                            <a href="https://vtplayer.mqiu.dev" target="_blank" class="hero__quicknav-link">VTPlayer</a>
+                        </div>
+                        <div class="hero__quicknav-series-cols">
+                            <div class="hero__quicknav-col">
+                                <div class="hero__quicknav-label">{{ t('quicknav.more') }} <span class="suite-series">/ {{ t('quicknav.workflowSuite') }}</span></div>
+                                <a href="https://desktoprenamer.mqiu.dev" target="_blank" class="hero__quicknav-link">{{ t('quicknav.desktoprenamer') }}</a>
+                                <a href="https://optclicker.mqiu.dev" target="_blank" class="hero__quicknav-link">{{ t('quicknav.optclicker') }}</a>
+                            </div>
+                            <div class="hero__quicknav-col">
+                                <div class="hero__quicknav-label"><span class="suite-series">/ {{ t('quicknav.mediaSuite') }}</span></div>
+                                <a href="https://vtplayer.mqiu.dev" target="_blank" class="hero__quicknav-link">VTPlayer</a>
+                            </div>
                         </div>
                     </div>
                     <div class="hero__quicknav-lang">
@@ -649,17 +653,21 @@
                         <div class="flex flex-col gap-1">
                             <a href="https://github.com/gitmichaelqiu/SpaceSwitcher" target="_blank" class="footer-nav-link">{{ t('quicknav.github') }}</a>
                             <a href="https://github.com/gitmichaelqiu/SpaceSwitcher/releases" target="_blank" class="footer-nav-link">{{ t('quicknav.releases') }}</a>
+                            <a href="https://mqiu.dev" class="footer-nav-link">{{ t('quicknav.portfolio') }}</a>
+                            <a href="https://mqiu.dev/blog" target="_blank" class="footer-nav-link">{{ t('quicknav.blog') }}</a>
                         </div>
                     </div>
                     <div class="md:col-span-3">
-                            <p class="footer-nav-label" style="margin-bottom:0.35rem;">{{ t('quicknav.more') }} <span class="suite-series">/ {{ t('quicknav.workflowSuite') }}</span></p>
-                        <div class="flex flex-col gap-1">
-                            <a href="https://mqiu.dev" class="footer-nav-link">{{ t('quicknav.portfolio') }}</a>
-                            <a href="https://mqiu.dev/blog" target="_blank" class="footer-nav-link">{{ t('quicknav.blog') }}</a>
-                            <a href="https://desktoprenamer.mqiu.dev" target="_blank" class="footer-nav-link">{{ t('quicknav.desktoprenamer') }}</a>
-                            <a href="https://optclicker.mqiu.dev" target="_blank" class="footer-nav-link">{{ t('quicknav.optclicker') }}</a>
-                            <p class="footer-nav-label" style="margin:0.8rem 0 0.35rem;"><span class="suite-series">/ {{ t('quicknav.mediaSuite') }}</span></p>
-                            <a href="https://vtplayer.mqiu.dev" target="_blank" class="footer-nav-link">VTPlayer</a>
+                        <div class="footer-series-cols">
+                            <div class="flex flex-col gap-1">
+                                <p class="footer-nav-label" style="margin-bottom:0.35rem;">{{ t('quicknav.more') }} <span class="suite-series">/ {{ t('quicknav.workflowSuite') }}</span></p>
+                                <a href="https://desktoprenamer.mqiu.dev" target="_blank" class="footer-nav-link">{{ t('quicknav.desktoprenamer') }}</a>
+                                <a href="https://optclicker.mqiu.dev" target="_blank" class="footer-nav-link">{{ t('quicknav.optclicker') }}</a>
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <p class="footer-nav-label" style="margin-bottom:0.35rem;"><span class="suite-series">/ {{ t('quicknav.mediaSuite') }}</span></p>
+                                <a href="https://vtplayer.mqiu.dev" target="_blank" class="footer-nav-link">VTPlayer</a>
+                            </div>
                         </div>
                     </div>
                 </div>
