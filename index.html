@@ -615,6 +615,7 @@
                                     </div>
                                 </a>
                             </div>
+                            <img src="resources/works/vt-player-full.png" data-hover-follower class="card-subimg">
                         </div>
                     </div>
                 </div>
@@ -1351,6 +1352,7 @@
                                             el.removeEventListener('wheel', window.__blockScroll, { capture: true });
                                             el.removeEventListener('touchmove', window.__blockScroll, { capture: true });
                                         }
+                                        document.documentElement.classList.add('preloader-complete');
                                         document.body.style.overflow = '';
                                         document.documentElement.style.overflow = '';
                                     } })
