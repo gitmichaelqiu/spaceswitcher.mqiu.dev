@@ -150,6 +150,7 @@
             'resources/works/space-switcher.png',
             'resources/works/space-switcher-full.png',
             'resources/works/space-switcher-full-dark.png',
+            'resources/works/wallpainter.png',
             'resources/demo/space-switcher/Rules.png',
             'resources/demo/space-switcher/Rules-Dark.png',
             'resources/demo/space-switcher/Docks.png',
@@ -349,6 +350,7 @@
                             <div class="hero__quicknav-col">
                                 <div class="hero__quicknav-label"><span class="suite-series">/ {{ t('quicknav.mediaSuite') }}</span></div>
                                 <a href="https://vtplayer.mqiu.dev" target="_blank" class="hero__quicknav-link">VTPlayer</a>
+                                <a href="https://wallpainter.mqiu.dev" target="_blank" rel="noopener" class="hero__quicknav-link">WallPainter</a>
                             </div>
                         </div>
                     </div>
@@ -617,6 +619,22 @@
                             </div>
                             <img src="resources/works/vtplayer-app-icon.png" data-hover-follower class="card-subimg">
                         </div>
+
+                        <!-- WallPainter -->
+                        <div class="work-card" data-hover-follow
+                            style="border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+                            <h3 class="heading-l text-4xl">{{ t('companions.wallpainterTitle') }}</h3>
+                            <p class="paragraph-m max-w-sm" style="color: var(--text-primary); font-family: 'Inter', sans-serif;">{{ t('companions.wallpainterBody') }}</p>
+                            <div class="work-meta">
+                                <a href="https://wallpainter.mqiu.dev" target="_blank" rel="noopener" data-btn class="ml-auto" style="font-size: 1.2rem; letter-spacing: 0em;">
+                                    <div data-btn-bg></div>
+                                    <div data-btn-inner :data-text="t('companions.learnMore')">
+                                        <span data-btn-text>{{ t('companions.learnMore') }}</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <img src="resources/works/wallpainter.png" data-hover-follower class="card-subimg">
+                        </div>
                     </div>
                 </div>
             </section>
@@ -670,6 +688,7 @@
                             <div class="flex flex-col gap-1">
                                 <p class="footer-nav-label" style="margin-bottom:0.35rem;"><span class="suite-series">/ {{ t('quicknav.mediaSuite') }}</span></p>
                                 <a href="https://vtplayer.mqiu.dev" target="_blank" class="footer-nav-link">VTPlayer</a>
+                                <a href="https://wallpainter.mqiu.dev" target="_blank" rel="noopener" class="footer-nav-link">WallPainter</a>
                             </div>
                         </div>
                     </div>
